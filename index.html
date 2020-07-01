@@ -10,13 +10,18 @@
     <script>
       var checker = new XMLHttpRequest(), statusElement = document.getElementById("status");
       checker.open("HEAD", "https://home.ingan121.tk/", false);
-      checker.send();
-      if (checker.status == 404) {
+      try {
+        checker.send();
+        if (checker.status == 404) {
+          statusElement.innerText = "Not open";
+          statusElement.style.color = "red";
+        } else {
+          statusElement.innerText = "Open";
+          statusElement.style.color = "green";
+        }
+      } catch {
         statusElement.innerText = "Not open";
         statusElement.style.color = "red";
-      } else {
-        statusElement.innerText = "Open";
-        statusElement.style.color = "green";
       }
     </script>
   </body>
