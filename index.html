@@ -11,19 +11,20 @@
       var checker = new XMLHttpRequest(), statusElement = document.getElementById("status");
       checker.open("HEAD", "https://home.ingan121.tk/", true);
       checker.timeout = 3000;
-      try {
-        checker.send();
-        if (checker.status == 200) {
-          statusElement.innerText = "Open";
-          statusElement.style.color = "green";
-        } else {
-          statusElement.innerText = "Unknown error occured";
-          statusElement.style.color = "red";
-        }
-      } catch {
+       checker.send();
+       checker.onload = function() {
+         if (checker.status == 200) {
+           statusElement.innerText = "Open";
+           statusElement.style.color = "green";
+         } else {
+           statusElement.innerText = "Unknown error occured";
+           statusElement.style.color = "red";
+         }
+       };
+       checker.ontimeout = function(e) {
         statusElement.innerText = "Not open";
         statusElement.style.color = "red";
-      }
+       };
     </script>
   </body>
 </html>
