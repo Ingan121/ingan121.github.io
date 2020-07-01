@@ -10,11 +10,8 @@
     <script>
       var checker = new XMLHttpRequest(), statusElement = document.getElementById("status");
       checker.open("HEAD", "https://home.ingan121.tk/", false);
+      checker.timeout = 3000;
       try {
-        var timer = setTimeout(function() {
-          checker.abort();
-          throw 0;
-        }, 2000);
         checker.send();
         if (checker.status == 200) {
           statusElement.innerText = "Open";
@@ -23,7 +20,6 @@
           statusElement.innerText = "Unknown error occured";
           statusElement.style.color = "red";
         }
-        clearTimeout(timer);
       } catch {
         statusElement.innerText = "Not open";
         statusElement.style.color = "red";
