@@ -4,6 +4,20 @@
     <title>Welcome!</title>
   </head>
   <body>
-    <p>Sometimes my laptop server opens at <a href="https://home.ingan121.tk/">home.ingan121.tk</a>.</p>
+    <h1>Welcome to Ingan121's Webpage!</h1>
+    <p>Nothing really special here yet.</p>
+    <p>My laptop server: <a href="https://home.ingan121.tk/">home.ingan121.tk</a> (<span id="status">Checking status...</span>)</p>
+    <script>
+      var checker = new XMLHttpRequest(), statusElement = document.getElementById("status");
+      checker.open("HEAD", "https://home.ingan121.tk/", false);
+      checker.send();
+      if (checker.status == 404) {
+        statusElement.innerText = "Not open";
+        statusElement.style.color = "red";
+      } else {
+        statusElement.innerText = "Open";
+        statusElement.style.color = "green";
+      }
+    </script>
   </body>
 </html>
