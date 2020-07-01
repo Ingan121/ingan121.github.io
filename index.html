@@ -9,7 +9,7 @@
     <p>My laptop server: <a href="https://home.ingan121.tk/">home.ingan121.tk</a> (<span id="status">Checking status...</span>)</p>
     <script>
       var checker = new XMLHttpRequest(), statusElement = document.getElementById("status");
-      checker.open("HEAD", "https://home.ingan121.tk/", false);
+      checker.open("HEAD", "https://home.ingan121.tk/", true);
       checker.timeout = 3000;
       try {
         checker.send();
