@@ -10,7 +10,7 @@
     <script>
       var checker = new XMLHttpRequest(), statusElement = document.getElementById("status");
       checker.open("HEAD", "https://home.ingan121.tk/", true);
-      checker.timeout = 1000;
+      checker.timeout = 2500;
        checker.send();
        checker.onload = function() {
          if (checker.status == 200) {
